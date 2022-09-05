@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+1# Run Router in React:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npm Install:
+npm install react-router-dom
 
-## Available Scripts
+Import:
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-In the project directory, you can run:
+Code use in Return (app.js):
 
-### `npm start`
+<!-- <BrowserRouter>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+        <Header />         component
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+        <Routes>
 
-### `npm test`
+          <Route path="/" element={<Home />} />                             page
+          <Route path="/About_Us" element={<About_Us />} />                 page
+          <Route path="/Our_Products" element={<Our_Products />} />         page    
+          <Route path="/Why_IVY" element={<Why_IVY />} />                   page        
+          <Route path="/Blogs" element={<Blogs />} />                       page        
+          <Route path="/Api_Practice" element={<Api_Practice />} />         page    
+          <Route path="/Login" element={<Login />} />                       page        
+          <Route path="/SignIn" element={<SignIn />} />                     page    
+          <Route path="/PostForm" element={<PostForm />} /> 
+                          page    
+        </Routes>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        <LastMainSlider/>  component
+        <Footer />         component
 
-### `npm run build`
+      </BrowserRouter> -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2# React Hook:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*Fetching API:
 
-### Code Splitting
+npm Install:
+npm install react-axios
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*Import:
+import React,  { useState, useEffect } from 'react'
 
-### Analyzing the Bundle Size
+*Variabel:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const [posts, setPosts] = useState([])
 
-### Making a Progressive Web App
+*code:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/photos')
+            .then(res => {
 
-### Advanced Configuration
+                setPosts(res.data)
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+*JSX Code:
 
-### `npm run build` fails to minify
+ .map((p) => {
+            return (
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+                <div className="col-md-4">
+
+                    <div className="card my-4" >
+
+                        <div className="imgCard">
+
+                            <img src={p.url} alt="" />
+
+                        </div>
+
+                        <div className="card-body">
+                            <h5 className="card-title">Card title</h5>
+                            {/* <p className="card-text">{posts.filter(p => p.id === 5).map(post => <p> {post.title.slice(0, 18)} </p>)}</p> */}
+                            <p className="card-text">{posts.filter(p => p.id === 5).map(post => <p> {post.title.slice(0, 18)} </p>)}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            )
+        })}
+
+
+
+
+
+
+3# Paginate Install:
+
+npm i react-paginate
+
+
+*Import:
+
+import ReactPaginate from "react-paginate";
+
+
+*Code:
+
+from Github: github.com/sufianzulfiqar786/
