@@ -72,30 +72,40 @@ useEffect(() => {
 
 *JSX Code:
 
- .map((p) => {
-            return (
+ return (
+    <div>
+      {
 
-                <div className="col-md-4">
+        posts.map((p) => {
+          return (
 
-                    <div className="card my-4" >
+            <div className="col-md-4">
 
-                        <div className="imgCard">
+              <div className="card my-4" >
 
-                            <img src={p.url} alt="" />
+                <div className="imgCard">
 
-                        </div>
-
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            {/* <p className="card-text">{posts.filter(p => p.id === 5).map(post => <p> {post.title.slice(0, 18)} </p>)}</p> */}
-                            <p className="card-text">{posts.filter(p => p.id === 5).map(post => <p> {post.title.slice(0, 18)} </p>)}</p>
-                        </div>
-                    </div>
+                  <img src={p.url} alt="" />
 
                 </div>
 
-            )
-        })}
+                <div className="card-body">
+                  <h5 className="card-title">Card title</h5>
+                  {/* <p className="card-text">{posts.filter(p => p.id === 5).map(post => <p> {post.title.slice(0, 18)} </p>)}</p> */}
+                  <p className="card-text">{posts.filter(p => p.id === 5).map(post => <p> {post.title.slice(0, 18)} </p>)}</p>
+                </div>
+              </div>
+
+            </div>
+
+
+          )
+        })
+        s}
+
+
+    </div>
+  );
 
 
 
@@ -115,3 +125,13 @@ import ReactPaginate from "react-paginate";
 *Code:
 
 from Github: github.com/sufianzulfiqar786/
+
+
+4# Load More Install: ( None )
+
+
+*Import: ( None )
+
+*JSX Code: 
+
+From Github.com/sufianzulfiqar786
